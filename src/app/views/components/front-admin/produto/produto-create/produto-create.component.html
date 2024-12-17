@@ -1,0 +1,97 @@
+<form class="form">
+  <h1>Cadastrar Produto</h1>
+
+  <div class="container-card-foto">
+    <mat-card class="example-card" appearance="outlined">
+      <img mat-card-image src="{{ imageUrl }}" alt="Photo of a Shiba Inu" />
+    </mat-card>
+
+    <div class="input-foto">
+      <mat-form-field appearance="fill">
+        <mat-label>Descrição da Foto</mat-label>
+        <input
+          [(ngModel)]="fotoProduto.descricao"
+          type="text"
+          required
+          name="descricao"
+          matInput
+          placeholder="Ex. C01024"
+        />
+      </mat-form-field>
+
+      <div class="file-upload-container">
+        <input
+          type="file"
+          id="fileInput"
+          (change)="selecionarFoto($event)"
+          multiple
+        />
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field class="full-width">
+    <mat-label>Codigo do Produto</mat-label>
+    <input
+      [(ngModel)]="produto.codProd"
+      type="text"
+      required
+      name="codProd"
+      matInput
+      placeholder="Ex. C01024"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Nome</mat-label>
+    <input
+      [(ngModel)]="produto.nomeProd"
+      type="text"
+      required
+      name="nomeProd"
+      maxlength="100"
+      matInput
+      placeholder="Ex. Creme de pele"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea
+      [(ngModel)]="produto.descricao"
+      type="text"
+      required
+      name="descricao"
+      matInput
+      placeholder="Ex. Creme hidratante para deixa sua pele..."
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Selecione uma Categoria</mat-label>
+    <mat-select [(value)]="produto.categoria">
+      <mat-option *ngFor="let codigo of categoriaCodigos" [value]="codigo">
+        {{ getCategoriaDescricao(codigo) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="bt-create">
+    <button
+      class="mat-elevation-z8"
+      (click)="create()"
+      mat-stroked-button
+      color="accent"
+    >
+      CRIAR
+    </button>
+    <button
+      class="mat-elevation-z8"
+      (click)="cancel()"
+      mat-stroked-button
+      color="warn"
+    >
+      CANCELAR
+    </button>
+  </div>
+</form>

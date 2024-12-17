@@ -1,0 +1,13 @@
+
+.carousel-item img{
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-inner {
+    height: 25rem;
+}
+
+.txt_legenda h5{
+    color: #dd2581;
+}

@@ -1,0 +1,14 @@
+mat-dialog-content {
+    font-size: 16px;
+    color: #ff4081 !important;
+  }
+
+  :host ::ng-deep .mat-mdc-dialog-container .mdc-dialog__title {
+    color: #ff4081 !important;
+}
+
+  button {
+    margin: 0 10px;
+    color: #ff4081;
+  }
+  

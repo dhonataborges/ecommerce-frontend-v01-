@@ -1,0 +1,216 @@
+/* Estilo para o título na parte superior */
+.title_top p {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 3rem; /* Espaço acima do título */
+  margin-bottom: 3rem;
+  padding: 1rem; /* Espaçamento interno */
+  font-size: 24px; /* Tamanho da fonte */
+  font-family: 'Arial'; /* Família de fontes */
+  font-weight: lighter; /* Peso da fonte mais leve */
+  color: #f03a95; /* Cor do texto */
+}
+
+.card-title[_ngcontent-ng-c806446080] {
+  color: #d32079;
+  height: 20%;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo geral para o card */
+.card {
+height: 33rem; /* Altura do card */
+}
+
+/* Estilo para o corpo do card */
+.card-body {
+padding: 0.5em; /* Espaçamento interno */
+margin: 0;
+width: 100%; /* Largura total */
+height: 60%; /* Altura relativa */
+position: relative; /* Necessário para sobreposição de texto */
+overflow: hidden; /* Garante que nada ultrapasse os limites */
+}
+
+/* Estilo para o título do card */
+.card-title {
+color: #d32079; /* Cor do título */
+height: 20%; /* Altura do título */
+margin: 0;
+}
+
+/* Estilo para as formas de pagamento */
+.card_formas_pagamento {
+height: 30%; /* Altura do bloco de pagamento */
+font-size: 0.9rem; /* Tamanho da fonte */
+margin-top: 1rem; /* Margem superior */
+}
+
+/* Estilo para o preço e desconto */
+.card_preco_desconto {
+display: flex; /* Organiza os itens lado a lado */
+align-items: center; /* Alinha verticalmente */
+gap: 10px; /* Espaçamento entre os itens */
+}
+
+.card_preco_sifrao,
+.card_preco,
+.card_desconto {
+margin: 0; /* Remove margens extras */
+color: #d32079; /* Cor de texto */
+font-size: 28px; /* Tamanho da fonte */
+}
+
+/* Alinha os elementos "R$" e "Desconto" ao fundo */
+.card_preco_sifrao, .card_desconto {
+align-self: flex-end;
+}
+
+.card_desconto p {
+margin-top: -3rem; /* Ajuste de posição */
+font-size: 17px; /* Tamanho da fonte */
+border-radius: 15px; /* Bordas arredondadas */
+background-color: #ff4081; /* Cor de fundo */
+color: white; /* Cor do texto */
+}
+
+/* Estilo para o texto parcelado */
+.card_parcelado {
+margin-top: -1rem;
+color:  #dd2581; /* Cor do texto */
+}
+
+/* Estilo para o botão */
+.btn {
+height: 10%; /* Altura do botão */
+width: 10rem; /* Largura do botão */
+background-color: #ffff; /* Cor de fundo */
+border:  #dd2581 solid 1px; /* Borda */
+color:  #dd2581; /* Cor do texto */
+margin-top: -1rem;
+}
+
+.btn:hover {
+background-color: #dd2581; /* Cor de fundo ao passar o mouse */
+color:  #ffff; /* Cor do texto ao passar o mouse */
+border:  #ffff solid 1px; /* Cor da borda ao passar o mouse */
+}
+
+/* Estilo para o botão dentro do card */
+.btn_card {
+width: 100%; /* Largura total */
+text-align: center; /* Centraliza o conteúdo */
+}
+
+/* Estilo para o texto do card */
+.card-text {
+margin-bottom: 0.5em; /* Espaçamento inferior */
+height: 25%; /* Altura do texto */
+font-size: 0.9rem; /* Tamanho da fonte */
+line-height: 1.5; /* Altura da linha */
+display: -webkit-box; /* Habilita o comportamento de múltiplas linhas */
+-webkit-line-clamp: 3; /* Limita o texto a 3 linhas */
+-webkit-box-orient: vertical; /* Orientação vertical */
+overflow: hidden; /* Oculta o conteúdo além das 3 linhas */
+text-overflow: ellipsis; /* Coloca '...' no final */
+position: relative; /* Posiciona normalmente */
+z-index: 1; /* Garante que o texto esteja acima */
+transition: all 0.2s ease; /* Transição suave */
+text-align: justify; /* Justifica o texto */
+color: #ff4081; /* Cor do texto */
+font-family: 'Open Sans', sans-serif; /* Família da fonte */
+}
+
+/* Estilo ao passar o mouse sobre o texto do card */
+.card-text:hover {
+height: 100%; /* Expande o texto ao passar o mouse */
+max-height: none; /* Remove limitação de altura */
+position: absolute; /* Retira do fluxo normal */
+top: 0; left: 0; right: 0; bottom: 0;
+z-index: 10; /* Coloca o texto sobre outros elementos */
+background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
+padding: 10px; /* Espaçamento ao redor */
+box-sizing: border-box; /* Para que o padding não afete o tamanho */
+text-align: justify; /* Justifica o texto */
+color: #ff4081; /* Cor do texto */
+white-space: normal; /* Quebra de linha normal */
+}
+
+/* Estilo para as colunas */
+.col {
+  margin: 1rem 0; /* Espaçamento superior e inferior */
+}
+
+/* Estilos para telas entre 570px e 768px */
+@media (min-width: 570px) and (max-width: 768px){
+  .card {
+    height: 30rem; /* Altura do card */
+    margin: 1em 0; /* Margem superior e inferior */
+  }
+
+  .col {
+    flex: none; /* Flexbox desabilitado */
+    width: 50%; /* Largura das colunas */
+  }
+
+  .card-body {
+    width: 15rem; /* Largura do corpo do card */
+    padding: 2em; /* Padding interno */
+    font-size: 14px; /* Tamanho da fonte */
+  }
+
+  .card_preco > p, .card_preco_sifrao > p {
+      font-size: 1rem; /* Tamanho da fonte */
+  }
+}
+
+/* Estilos para orientação portrait (vertical) */
+@media screen and (orientation: portrait) {
+  .title_cards {
+    padding: 1rem;
+    text-align: center; /* Centraliza o texto */
+    font-size: 20px;
+    color: #f03a95; /* Cor do texto */
+  }
+
+  .card {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove padding */
+  }
+
+  .col {
+    width: 100vw; /* Largura total da tela */
+    padding: 0; /* Remove padding */
+  }
+
+  .row {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove padding */
+    width: 100vw; /* Largura total da tela */
+  }
+
+  .card-body {
+    width: 15rem; /* Largura do corpo do card */
+  }
+
+  .card-title {
+    font-size: 18px; /* Tamanho do título */
+  }
+
+  .card-text {
+    font-size: 15px; /* Tamanho do texto */
+  }
+
+  .btn:hover {
+    background-color: #dd2581; /* Cor de fundo ao passar o mouse */
+    color: #ffff; /* Cor do texto ao passar o mouse */
+    border: #ffff solid 1px; /* Cor da borda ao passar o mouse */
+  }
+  
+  .btn {
+    width: 10rem; /* Largura do botão */
+    background-color: #ffff; /* Cor de fundo */
+    border: #dd2581 solid 1px; /* Borda */
+    color: #dd2581; /* Cor do texto */
+  }
+}

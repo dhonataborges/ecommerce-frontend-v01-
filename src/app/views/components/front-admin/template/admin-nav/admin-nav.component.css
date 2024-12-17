@@ -1,0 +1,44 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 83.1%;
+}
+i {
+    margin-right: 1rem;
+}
+
+button {
+    margin: 1rem auto 0 1rem;
+}
+
+.mat-mdc-menu-item.mat-mdc-menu-item-submenu-trigger {
+    padding-right: 0; 
+    margin: 0 !important; 
+}
+
+.mat-drawer-container {
+    position:absolute; 
+    z-index: 1;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.material-icons {
+    color: #ff69b4;
+}
+
+:host ::ng-deep .mdc-list-item__primary-text{
+    color: #ff69b4 !important; 
+}
+
+.mat-mdc-menu-item, .mat-mdc-menu-item:visited, .mat-mdc-menu-item:link {
+    color: #ff69b4 !important; 
+}

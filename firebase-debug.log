@@ -1,0 +1,25 @@
+[debug] [2024-02-12T15:27:59.376Z] ----------------------------------------------------------------------
+[debug] [2024-02-12T15:27:59.378Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dhona\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-02-12T15:27:59.379Z] CLI Version:   13.0.3
+[debug] [2024-02-12T15:27:59.379Z] Platform:      win32
+[debug] [2024-02-12T15:27:59.379Z] Node Version:  v18.14.1
+[debug] [2024-02-12T15:27:59.380Z] Time:          Mon Feb 12 2024 12:27:59 GMT-0300 (GMT-03:00)
+[debug] [2024-02-12T15:27:59.381Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-12T15:27:59.484Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-12T15:27:59.485Z] > authorizing via signed-in user (dhonata.borges2017@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Alfa_System\Meus Projetos 2023\Projetos\e-commerce\frontend
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

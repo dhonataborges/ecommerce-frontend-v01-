@@ -1,0 +1,71 @@
+<div class="create">
+    <h1>Produtos em Estoque</h1>
+    <button (click)="navigateToCreate()" class="mat-elevation-z8 container" mat-button color="accent" ><i class="material-icons">add_circle</i> INSERIR PRODUTO</button>
+  </div>
+  
+  <div class="mat-elevation-z8 container">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- CODIGO Column -->
+      <ng-container matColumnDef="codProd">
+        <th mat-header-cell *matHeaderCellDef> CODIGO </th>
+        <td mat-cell *matCellDef="let element"> {{element.produto.codProd}} </td>
+      </ng-container>
+      
+      <!-- CODIGO Column -->
+      <ng-container matColumnDef="nomeProd">
+        <th mat-header-cell *matHeaderCellDef> NOME </th>
+        <td mat-cell *matCellDef="let element"> {{element.produto.nomeProd}} </td>
+      </ng-container>
+  
+      <!-- NOME Column -->
+      <ng-container matColumnDef="dataEntrada">
+        <th mat-header-cell *matHeaderCellDef> DATA ENTRADA </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataEntrada}} </td>
+      </ng-container>
+  
+      <!-- DESCRIÇÃO Column -->
+      <ng-container matColumnDef="dataSaida">
+        <th mat-header-cell *matHeaderCellDef> DATA SAIDA </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataSaida}} </td>
+      </ng-container>
+
+       <!-- CATEGORIA Column -->
+       <ng-container matColumnDef="valorUnid">
+        <th mat-header-cell *matHeaderCellDef> VALOR UNIDADE </th>
+        <td mat-cell *matCellDef="let element"> {{element.valorUnid}} </td>
+       </ng-container>
+
+        <!-- CATEGORIA Column -->
+        <ng-container matColumnDef="qtdProd">
+            <th mat-header-cell *matHeaderCellDef> QUANTIDADE </th>
+            <td mat-cell *matCellDef="let element"> {{element.qtdProd}} </td>
+        </ng-container>
+
+       <!-- CATEGORIA Column -->
+       <ng-container matColumnDef="valorTotalProd">
+        <th mat-header-cell *matHeaderCellDef> VALOR TOTAL </th>
+        <td mat-cell *matCellDef="let element"> {{element.valorTotalProd}} </td>
+    </ng-container>
+
+    <!-- Ações Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="update/{{ element.id }}">
+          <i id="editar" class="material-icons">editar</i>
+        </a>
+        <button class="botao" (click)="delete(element.id)">
+          <i id="delete" class="material-icons">delete</i>
+        </button>
+      </td>
+    </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[1, 5, 10, 20, 50, 100]" showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

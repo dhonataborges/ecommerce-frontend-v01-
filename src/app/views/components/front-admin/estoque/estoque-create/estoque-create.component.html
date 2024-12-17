@@ -1,0 +1,43 @@
+<form class="form">
+    <h1>Entrada de Produto</h1>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Código do Produto</mat-label>
+        <mat-select [(value)]="estoque.produto" (selectionChange)="estoque.produto.id = $event.value.id">
+          <mat-option *ngFor="let prod of produtos" [value]="prod">
+            {{ prod.codProd }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+      
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <mat-select [(value)]="estoque.produto" (selectionChange)="estoque.produto.id = $event.value.id">
+          <mat-option *ngFor="let prod of produtos" [value]="prod">
+            {{ prod.nomeProd }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+       <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data de Entrada</mat-label>
+        <input [(ngModel)]="estoque.dataEntrada" [ngModelOptions]="{standalone: true}"  required name="dataEntrada" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Valor Unitário</mat-label>
+        <input [(ngModel)]="estoque.valorUnid"  type="number" required name="valorUnid" matInput  placeholder="R$0,00">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-label>Quantidade</mat-label>
+        <input [(ngModel)]="estoque.qtdProd" type="number" required name="qtdProd" matInput placeholder="Ex. 94105">
+    </mat-form-field>
+
+    <div class="bt-create">
+        <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
+        <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+    </div>
+</form>

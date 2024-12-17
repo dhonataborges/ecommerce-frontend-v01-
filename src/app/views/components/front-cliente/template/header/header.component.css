@@ -1,0 +1,88 @@
+.menu_logo {
+    top: 0;
+    height: 15%;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    margin: none;
+    padding: none;
+    position: fixed;
+    border-bottom: solid 1px #cb2a7d;
+}
+
+.navbar-brand {
+    width: 100%;
+    display: inline-flex;
+    padding: auto;
+}
+
+.navbar_brand_logo_texto p{
+    color: #cb2a7d;
+    padding: 1em;
+
+}
+
+.navbar-brand img {
+    border-radius: 5px;
+}
+
+.navbar_brand_logo_texto {
+    display: inline-flex;
+    width: 100%;
+    color: #cb2a7d;
+    padding: 1rem 0;
+}
+
+.navbar_brand_pesquisa {
+    width: 100%;
+    padding: 1.3rem 0;
+}
+
+
+.btn_pesq, .input_pesq{
+    border-color: #cb2a7d;
+}
+
+input::placeholder {
+   color: #cb2a7d;
+}
+
+.btn_pesq:hover{
+    border-color: #fff;
+    background-color: #cb2a7d;
+    color: #fff;
+}
+
+.btn_pesq svg:hover {
+    fill: #fff;
+}
+
+
+@media screen and (orientation: portrait) {
+    
+    .menu_logo {
+        top: 0;
+        height: 5.5rem;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1000;
+        position: fixed;
+        border-bottom: solid 1px #cb2a7d;
+    }
+
+    .navbar-brand img {
+        border-radius: 5px;
+    }
+
+    .navbar_brand_logo_texto > p  {
+        display: none;
+    }
+
+    .search {
+        flex: none;
+        display: inline;
+        float: right;
+        width: 70vw;
+    }
+
+}

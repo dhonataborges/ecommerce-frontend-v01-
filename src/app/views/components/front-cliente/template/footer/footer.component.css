@@ -1,0 +1,164 @@
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.footer {
+  position: relative;
+  margin-top: 2rem;
+  padding-top: 45px;
+  background: #ca0377;
+}
+
+.email_footer {
+  color: #ffff;
+}
+
+.icon_socias, .pagamento > img{
+  margin-right: 2rem;
+}
+
+.redes_sociais, .pagamento {
+ display: inline-flex;
+}
+
+.footer .footer_redes_sociais {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.footer .email_footer h4,
+.footer-menu h3,
+.footer .footer_pagamento h3,
+.footer .footer_redes_sociais h3 {
+  position: relative;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  
+}
+
+.footer_pagamento h3::after,
+.footer_redes_sociais h3::after {
+    position: absolute;
+    content: " ";
+    width: 50px;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #ffffff;
+  }
+
+  .footer-menu h3::after,
+  .email_footer h4::after {
+    position: absolute;
+    content: " ";
+    width: 20px;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #ffffff;
+  }
+  
+  .menu-1, .menu-2, .menu-3, .menu-4 {
+    margin-bottom: 2rem;
+  }
+
+.links_a_1 a {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ffff;
+  
+}
+
+.links_a_2 a {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ffff;
+  
+}
+  
+.footer .footer_pagamento a:hover {
+  color: #ffffff;
+  background: #ff00aa;
+  border-color: #ff00f2;
+}
+  
+.footer .copyright {
+  position: relative;
+  padding: 30px 0;
+  background: #4d072d;
+}
+
+.footer .copyright .copy-text p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.footer .copyright .copy-text p a {
+  color: #dddddd;
+}
+
+.footer .copyright .copy-text p a:hover {
+  color: #ff00aa;
+}
+
+.footer .copyright .copy-menu a {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+.footer .copyright .copy-menu a:hover {
+  color: #ff00aa;
+}
+
+.footer .copyright .copy-menu a:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: none;
+}
+@media screen and (orientation: portrait) {
+
+  .icon_socias {
+    padding: 0;
+    margin-right: 1em;
+  }
+
+  footer {
+    bottom: 0;
+    width: 100%;
+  }
+
+  .copy-text {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    flex: none;
+    width: 100%;
+  } 
+  
+  .copy-menu {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    flex: none;
+    width: 100%;
+  }
+
+  .copy-menu a{
+    font-size: 12px;
+    width: 100%;
+  }
+}

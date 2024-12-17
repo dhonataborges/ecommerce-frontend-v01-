@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-dialog .mat-dialog-content {
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .custom-dialog .mat-dialog-actions button {
+    background-color: #e91e63; /* Cor personalizada para os botões */
+    color: white;
+  }
+  

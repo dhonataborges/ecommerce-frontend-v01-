@@ -1,0 +1,48 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="admin/admin-home">
+        <i class="material-icons">home</i>Home
+      </a>
+
+      <a mat-list-item routerLink="admin/produtos">
+        <i class="material-icons">view_in_ar</i>Produtos
+      </a>
+
+      <a mat-list-item routerLink="admin/estoques">
+        <i class="material-icons">inventory</i>Estoque
+      </a>
+
+      <a mat-list-item routerLink="admin/venda-produtos">
+        <i class="material-icons">paid</i>Venda
+      </a>
+
+      <!-- Menu principal -->
+      <a mat-list-item [matMenuTriggerFor]="menu">
+        <i class="material-icons">fact_check</i> Relatórios
+      </a>
+
+      <mat-menu #menu="matMenu">
+        <a routerLink="os/closed" mat-menu-item>Produto</a>
+        <a routerLink="os/closed" mat-menu-item>Vendas</a>
+        <button mat-menu-item [matMenuTriggerFor]="subMenu">Estoque</button>
+      </mat-menu>
+
+      <mat-menu #subMenu="matMenu">
+        <a routerLink="os/entrada" mat-menu-item>Entrada</a>
+        <a routerLink="os/saida" mat-menu-item>Saída</a>
+      </mat-menu>
+
+      <a mat-list-item routerLink="home">
+        <i class="material-icons">arrow_back</i>Voltar
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button mat-button (click)="drawer.toggle()">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

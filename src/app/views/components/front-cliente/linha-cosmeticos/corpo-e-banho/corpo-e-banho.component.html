@@ -1,0 +1,43 @@
+
+<div class="container">
+
+  <div class="title_top">
+    <p>Linha Corpo e Banho Linda Cosmeticos</p>
+  </div>
+
+  <div class="row row-cols-3">
+    <div class="col" *ngFor="let vendaProduto of cosmeticos">
+
+      <div class="col d-flex align-items-center justify-content-center">
+          <div class="card justify-content-md-center" style="width: 15rem;">
+            <img *ngIf="images[vendaProduto.estoque.produto.id!]" [src]="images[vendaProduto.estoque.produto.id!]" alt="Imagem do Produto" />
+              <div class="card-body" >
+                <h5 class="card-title">{{vendaProduto.estoque.produto.nomeProd}}</h5>
+                <p class="card-text">{{vendaProduto.estoque.produto.descricao}}</p>
+
+                <div class="card_formas_pagamento">
+                  <div class="card_preco_desconto" >
+                      
+                      <div class="card_preco_sifrao">
+                          <p>R$</p>
+                      </div>
+                      <div  class="card_preco">
+                          <p>{{vendaProduto.valorVenda | currency:'':''}}</p>
+                      </div>
+                      <div class="card_desconto">
+                          <p>{{vendaProduto.descontoPorcento}}%</p> 
+                      </div>  
+                  </div>
+                  <div class="card_parcelado">
+                      <p>ou {{vendaProduto.numParcela}}x {{vendaProduto.valorParcela | currency}}</p>
+                  </div>
+                </div>
+                <div class="btn_card">
+                  <a routerLink="/meus-pedidos" class="btn text">ADICIONAR</a>
+                </div>                  
+              </div>
+            </div>
+      </div>
+    </div>
+ 
+</div>

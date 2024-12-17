@@ -1,0 +1,41 @@
+.card_pedido {
+    padding: 1rem;
+}
+
+.card {
+    margin-top: 2rem;
+    height: 60%;
+    width: 100%;
+    border: #dd2581 1px solid;
+}
+
+.card-title {
+    text-align: center;
+    color: #dd2581;
+}
+
+th {
+    color: #dd2581;
+}
+
+td {
+    color: #dd2581;
+}
+
+.btn_tb {
+    padding: 1rem 0 0 0;
+    width: 100%;
+}
+
+.btn {
+    float: inline-end;
+    width: 10rem;
+    background-color: #ffff;
+    color: #dd2581;    
+    border:  #dd2581 solid 1px;
+}
+
+.btn:hover {
+    background-color: #dd2581;;
+    color:  #ffff;
+}

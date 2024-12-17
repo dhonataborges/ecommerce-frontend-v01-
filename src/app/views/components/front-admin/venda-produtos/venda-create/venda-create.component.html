@@ -1,0 +1,91 @@
+<form class="form">
+  <h1>Adicionar Produto a Venda</h1>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Código do Produto</mat-label>
+    <mat-select
+      [(value)]="venda.estoque"
+      (selectionChange)="onProdutoChange($event)"
+    >
+      <mat-option *ngFor="let est of estoques" [value]="est">
+        {{ est.produto.codProd }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <mat-select
+      [(value)]="venda.estoque"
+      (selectionChange)="onProdutoChange($event)"
+    >
+      <mat-option *ngFor="let est of estoques" [value]="est">
+        {{ est.produto.nomeProd }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" disabled appearance="fill">
+    <mat-label>Valor Unitário:</mat-label>
+    <input
+      matInput
+      [value]="venda.estoque.valorUnid | currency : 'BRL' : 'symbol' : '1.2-2'"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Valor Venda</mat-label>
+    <input
+      [(ngModel)]="venda.valorVenda"
+      type="number"
+      required
+      name="valorVenda"
+      matInput
+      placeholder="R$0,00"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Número parcelas</mat-label>
+    <input
+      [(ngModel)]="venda.numParcela"
+      type="number"
+      required
+      name="numParcela"
+      matInput
+      placeholder="Ex. 10"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Desconto</mat-label>
+    <input
+      [(ngModel)]="venda.descontoPorcento"
+      type="number"
+      required
+      name="descontoPorcento"
+      matInput
+      placeholder="0,00"
+    />
+  </mat-form-field>
+
+  <div class="bt-create">
+    <button
+      class="mat-elevation-z8"
+      (click)="create()"
+      mat-stroked-button
+      color="accent"
+    >
+      CRIAR
+    </button>
+    <button
+      class="mat-elevation-z8"
+      (click)="cancel()"
+      mat-stroked-button
+      color="warn"
+    >
+      CANCELAR
+    </button>
+  </div>
+</form>
