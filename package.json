@@ -1,12 +1,15 @@
 {
   "name": "frontend",
   "version": "0.0.0",
+  "homepage": "https://github.com/dhonataborges/ecommerce-frontend-v01-",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +39,7 @@
     "@types/bootstrap": "^5.2.10",
     "@types/jasmine": "~4.3.0",
     "@types/jquery": "^3.5.29",
+    "gh-pages": "^6.2.0",
     "i": "^0.3.7",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
