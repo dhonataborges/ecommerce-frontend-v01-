@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "build:gh-pages": "ng build --configuration production --base-href 'https://github.com/dhonataborges/ecommerce-frontend-v01-'"
   },
   "private": true,
   "dependencies": {
