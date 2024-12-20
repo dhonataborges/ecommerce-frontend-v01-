@@ -63,7 +63,7 @@ export class VendaUpdateComponent  implements  OnInit {
     // Enviar o objeto estoque com a data já formatada para o backend
     this.service.update(this.venda).subscribe((resposta) => {
       this.router.navigate(['admin/venda-produtos']);
-      this.service.message('Produto inserido com sucesso!');
+      this.service.message('Produto a venda atualizado com sucesso!');
     }, err => {
       if (err.error.error.match('já se encontra no para venda')) {
         this.service.message(err.error.error);

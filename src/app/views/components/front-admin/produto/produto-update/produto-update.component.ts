@@ -92,7 +92,7 @@ export class ProdutoUpdateComponent implements OnInit {
         this.router.navigate(['admin/produtos']);
 
         // Exibe uma mensagem de sucesso após o produto ser cadastrado.
-        this.service.message('Produto cadastrado com sucesso!');
+        this.service.message('Produto atualizado com sucesso!');
       },
       (err) => {
         // Caso o produto já tenha sido cadastrado, a mensagem de erro será mostrada.
