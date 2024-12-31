@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environment.ts/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FotoProduto } from '../models/FotoProduto';
 import { Produto } from '../models/Produto';
 import { ProdutoService } from './produto.service';
-import { environment } from '../environment.ts/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +43,6 @@ export class CatalogoFotoProdutoService {
   
   atualizarFoto(prod_id: number, formData: FormData): Observable<FotoProduto> {
     // Criação do objeto com o id do produto (sem o objeto completo)
-
     const url = `${this.apiUrl}/admin/produtos/${prod_id}/foto`; // URL para onde o arquivo será enviado
     return this.http.put<any>(url, formData); // Envia o FormData para a API
   }

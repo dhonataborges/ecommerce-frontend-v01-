@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environment.ts/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Produto } from '../models/Produto';
-import { environment } from '../environment.ts/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class ProdutoService {
 
   /** MÉTODO PARA CRIAR UM NOVO PRODUTO*/
   create(produto: Produto): Observable<Produto> {
-    const url = this.apiUrl + '/admin/produtos';
+    const url = this.apiUrl + '/produtos';
     return this.http.post<Produto>(url, produto);
   }
 

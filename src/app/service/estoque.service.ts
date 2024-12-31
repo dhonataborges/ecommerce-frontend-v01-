@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environment.ts/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Estoque } from '../models/Estoque';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from '../environment.ts/environment.prod';
 
 @Injectable({
   providedIn: 'root'

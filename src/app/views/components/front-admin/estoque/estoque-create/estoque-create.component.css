@@ -1,5 +1,5 @@
 .form {
-    width: 70%;
+    width: 90%;
     height: 50%;
     margin: auto;
 }
@@ -60,3 +60,33 @@ button {
 :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
     border-bottom-color: #ff4081 !important;
 }
+
+/* Estilos para telas entre 570px e 768px */
+@media (min-width: 370px) and (max-width: 768px){
+  
+ /*------Stilo do form de cadastro---------*/
+ 
+ h1 {
+   font-size: 20px;
+ }
+ 
+ .form[_ngcontent-ng-c3321431633] {
+   width: 90%;
+   height: 50%;
+   margin: 2rem;
+ }
+ 
+ .full-width {
+   width: 100%;
+ }
+ 
+ .mat-elevation-z8{
+   width: 100%;
+ }
+ 
+ .bt-create {
+   display: block;
+   width: 100%;
+ }
+ 
+ }

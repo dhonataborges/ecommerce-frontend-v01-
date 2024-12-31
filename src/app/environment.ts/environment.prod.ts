@@ -1,9 +1,4 @@
-export const environment = {
-    production: true,
-    apiUrl: 'https://ecommerce-backend-v01.onrender.com'
-};
-
-// export const environment = {
-//     production: true,
-//     apiUrl: 'http://localhost:8080'
-// };
+/*export const environment = {
+    //production: false,
+    apiUrl: 'https://apiordem-servico.herokuapp.com'
+};*/

@@ -61,6 +61,8 @@ import { VendaCreateComponent } from './views/components/front-admin/venda-produ
 import { VendaUpdateComponent } from './views/components/front-admin/venda-produtos/venda-update/venda-update.component';
 import { VendaReadComponent } from './views/components/front-admin/venda-produtos/venda-read/venda-read.component';
 import { CabelosComponent } from './views/components/front-cliente/linha-cosmeticos/cabelos/cabelos.component';
+import { PedidosReadComponent } from './views/components/front-admin/pedidos/pedidos-read/pedidos-read.component';
+import { PedidosUpdateComponent } from './views/components/front-admin/pedidos/pedidos-update/pedidos-update.component';
 
 registerLocaleData(ptBr);
 
@@ -106,7 +108,9 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     EstoqueUpdateComponent,
     VendaCreateComponent,
     VendaUpdateComponent,
-    VendaReadComponent
+    VendaReadComponent,
+    PedidosReadComponent,
+    PedidosUpdateComponent
 
   ],
   imports: [

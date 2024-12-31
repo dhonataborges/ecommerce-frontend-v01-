@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/app/environment.ts/environment.prod';
+import { environment } from 'src/app/environment.ts/environment';
 import { Produto } from 'src/app/models/Produto';
 import { VendaProduto } from 'src/app/models/VendaProduto';
 import { CatalogoFotoProdutoService } from 'src/app/service/catalogoFotoProduto.service';

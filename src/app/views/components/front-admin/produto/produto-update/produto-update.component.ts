@@ -62,56 +62,7 @@ export class ProdutoUpdateComponent implements OnInit {
     });
   }
 
-  update(): void {
-   
-    // Chamada para o serviço que cria o produto no backend, passando os dados do produto.
-    this.service.update(this.produto).subscribe(
-      (resposta) => {
-        const prod_id = resposta.id; // Captura o ID do produto retornado pelo backend.
-
-        // Verificação se há uma foto selecionada para o produto.
-        if (this.selecineFoto) {
-          // Criação do objeto FormData para enviar o arquivo de imagem.
-          const formData = new FormData();
-          formData.append('descricao', this.fotoProduto.descricao); // Adiciona a descrição da foto.
-          formData.append('arquivo', this.selecineFoto); // Adiciona o arquivo de imagem.
-
-          // O 'file' aqui é um campo do FormData utilizado para enviar o arquivo para o backend.
-          formData.append('file', this.selecineFoto); // Adiciona a foto ao FormData.
-
-          // Chamada ao serviço que envia a foto associada ao produto no backend.
-          this.fotoService.atualizarFoto(prod_id ?? 0, formData).subscribe(
-            (response) => console.log('Upload bem-sucedido!', response), // Sucesso no upload.
-            (error) => console.error('Erro no upload:', error) // Caso ocorra algum erro no upload.
-          );
-        } else {
-          console.error('Nenhum arquivo selecionado!'); // Caso não haja foto selecionada, um erro é mostrado no console.
-        }
-
-        // Navega para a página de produtos após o cadastro.
-        this.router.navigate(['admin/produtos']);
-
-        // Exibe uma mensagem de sucesso após o produto ser cadastrado.
-        this.service.message('Produto atualizado com sucesso!');
-      },
-      (err) => {
-        // Caso o produto já tenha sido cadastrado, a mensagem de erro será mostrada.
-        if (err.error.error.match('já cadastrado')) {
-          this.service.message(err.error.error);
-        }
-      }
-    );
-  }
-
-  
-  findByIdFoto(): void {
-    const id_foto = parseInt(this.id_produto);
-    this.fotoService.fotoBuscar(id_foto).subscribe((resposta) => {
-      this.fotoProduto = resposta;
-    });
-  }
-
-  selecineFoto: File | null = null; // Variável para armazenar o arquivo selecionado
+  selecioneFoto: File | null = null; // Variável para armazenar o arquivo selecionado
 
   imageUrl: string = './assets/img-admin/image-generica.jpeg';
 
@@ -120,19 +71,67 @@ export class ProdutoUpdateComponent implements OnInit {
     const input = event.target as HTMLInputElement; // Acessa o input do tipo 'file' que gerou o evento.
     if (input?.files?.length) {
       // Verifica se há arquivos selecionados.
-      this.selecineFoto = input.files[0]; // Pega o primeiro arquivo selecionado.
+      this.selecioneFoto = input.files[0]; // Pega o primeiro arquivo selecionado.
 
       // Cria uma URL temporária para a imagem selecionada, permitindo sua exibição.
-      this.imageUrl = URL.createObjectURL(this.selecineFoto);
-      console.log('Arquivo selecionado:', this.selecineFoto.name); // Log do nome do arquivo selecionado.
+      this.imageUrl = URL.createObjectURL(this.selecioneFoto);
+      console.log('Arquivo selecionado:', this.selecioneFoto.name); // Log do nome do arquivo selecionado.
     }
   }
 
+  update(): void {
+    // Chamada para o serviço que atualizar o produto no backend, passando os dados do produto.
+    this.service.update(this.produto).subscribe({
+      next: (resposta) => {
+        const prod_id = resposta.id; // Captura o ID do produto retornado pelo backend.
 
+        // Verificação se há uma foto selecionada para o produto
+        if (this.selecioneFoto) {
+          // Criação do objeto FormData para enviar o arquivo de imagem
+          const formData = new FormData();
+          formData.append(
+            'descricao',
+            this.fotoProduto?.descricao || 'Foto padrão'
+          ); // Adiciona a descrição da foto
+
+          formData.append('arquivo', this.selecioneFoto); // Adiciona o arquivo de imagem.
+          formData.append('file', this.selecioneFoto); // Adiciona a foto ao FormData
+
+          // Chamada ao serviço que envia a foto associada ao produto no backend
+          this.fotoService.atualizarFoto(prod_id ?? 0, formData).subscribe({
+            next: (resposta) => {
+              console.log('Upload bem-sucedido!', resposta);
+              this.service.message(
+                'Produto atualizado e foto associada com sucesso!'
+              );
+              this.router.navigate(['admin/produtos']); // Redireciona para a página de produtos
+            },
+            error: (error) => {
+              console.error('Erro no upload:', error);
+              this.service.message(
+                'Produto atualizado, mas ocorreu um erro ao associar a foto.'
+              );
+              this.router.navigate(['admin/produtos']); // Redireciona mesmo com erro no upload
+            },
+          });
+        } else {
+          console.warn('Nenhuma foto selecionada.');
+          this.service.message('Produto atualizado sem foto.');
+          this.router.navigate(['admin/produtos']); // Redireciona para a página de produtos
+        }
+      },
+    });
+  }
+
+  findByIdFoto(): void {
+    const id_foto = parseInt(this.id_produto);
+    this.fotoService.fotoBuscar(id_foto).subscribe((resposta) => {
+      this.fotoProduto = resposta;
+    });
+  }
 
   // Método para obter a foto e seus headers
   obterFoto(): void {
-
     const acceptHeader = 'image/jpeg,image/png'; // Cabeçalho para o tipo de resposta que esperamos
 
     const prod_id = parseInt(this.id_produto);
@@ -173,5 +172,5 @@ export class ProdutoUpdateComponent implements OnInit {
     return this.categoriaDescricao[codigo] || 'Desconhecido'; // Retorna a descrição da categoria ou 'Desconhecido' se o código não for encontrado.
   }
 
-  categoriaCodigos: number[] = [0, 1, 2, 3, 4, 5];
+  categoriaCodigos: number[] = [0, 1, 2, 3, 4, 5,6];
 }

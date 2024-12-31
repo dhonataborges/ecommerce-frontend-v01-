@@ -64,51 +64,51 @@ export class ProdutoCreateComponent implements OnInit {
       descriCatedoria: this.produto.descriCatedoria, // Descrição da categoria
     };
   
-    // Chamada para o serviço que cria o produto no backend, passando os dados do produto.
-    this.service.create(produtoParaEnviar).subscribe({
-      next: (resposta) => {
-        const prodId = resposta.id; // Captura o ID do produto retornado pelo backend.
-  
-        // Verificação se há uma foto selecionada para o produto.
-        if (this.selecioneFoto) {
-          // Criação do objeto FormData para enviar o arquivo de imagem.
-          const formData = new FormData();
-          formData.append('descricao', this.fotoProduto.descricao); // Adiciona a descrição da foto.
-          formData.append('file', this.selecioneFoto); // Adiciona a foto ao FormData.
-  
-          // Chamada ao serviço que envia a foto associada ao produto no backend.
-          this.fotoService.atualizarFoto(prodId || 0, formData).subscribe({
-            next: (resposta) => {
-              console.log('Upload bem-sucedido!', resposta);
-              // Redireciona para a página de produtos após o upload bem-sucedido.
-              this.router.navigate(['admin/produtos']);
-            },
-            error: (error) => {
-              console.error('Erro no upload:', error);
-              // Redireciona mesmo que ocorra erro no upload da foto.
-              this.router.navigate(['admin/produtos']);
-            }
-          });
-        } else {
-          console.warn('Nenhum arquivo de foto selecionado para o produto.');
-          // Redireciona para a página de produtos após o cadastro sem foto.
-          this.router.navigate(['admin/produtos']);
-        }
-  
-        // Exibe uma mensagem de sucesso após o produto ser cadastrado.
-        this.service.message('Produto cadastrado com sucesso!');
-      },
-      error: (err) => {
-        const mensagemErro = err?.error.detail;
-        if (mensagemErro?.includes(`Produto com o código ${produtoParaEnviar.codProd} já está cadastrado!`)) {
-          this.service.message(`Erro: Produto com o código ${produtoParaEnviar.codProd} já está cadastrado!`);
-        } else {
-          this.service.message('Erro ao cadastrar o produto. Verifique os campos e tente novamente.');
-          console.error('Erro ao cadastrar o produto:', err);
-        }
+  // Chamada para o serviço que cria o produto no backend
+  this.service.create(produtoParaEnviar).subscribe({
+    next: (resposta) => {
+      const prod_id = resposta.id; // Captura o ID do produto retornado pelo backend.
+
+      // Verificação se há uma foto selecionada para o produto
+      if (this.selecioneFoto) {
+        // Criação do objeto FormData para enviar o arquivo de imagem
+        const formData = new FormData();
+        formData.append('descricao', this.fotoProduto?.descricao || 'Foto padrão'); // Adiciona a descrição da foto
+        
+        formData.append('arquivo', this.selecioneFoto); // Adiciona o arquivo de imagem.
+        formData.append('file', this.selecioneFoto); // Adiciona a foto ao FormData
+
+        // Chamada ao serviço que envia a foto associada ao produto no backend
+        this.fotoService.atualizarFoto(prod_id ?? 0, formData).subscribe({
+          next: (resposta) => {
+            console.log('Upload bem-sucedido!', resposta);
+            this.service.message('Produto cadastrado e foto associada com sucesso!');
+            this.router.navigate(['admin/produtos']); // Redireciona para a página de produtos
+          },
+          error: (error) => {
+            console.error('Erro no upload:', error);
+            this.service.message('Produto cadastrado, mas ocorreu um erro ao associar a foto.');
+            this.router.navigate(['admin/produtos']); // Redireciona mesmo com erro no upload
+          },
+        });
+      } else {
+        console.warn('Nenhuma foto selecionada.');
+        this.service.message('Produto cadastrado sem foto.');
+        this.router.navigate(['admin/produtos']); // Redireciona para a página de produtos
       }
-    });
-  }
+    },
+    error: (err) => {
+      const mensagemErro = err?.error?.detail;
+      if (mensagemErro?.includes(`Produto com o código ${produtoParaEnviar.codProd} já está cadastrado!`)) {
+        this.service.message(`Erro: Produto com o código ${produtoParaEnviar.codProd} já está cadastrado!`);
+      } else {
+        this.service.message('Erro ao cadastrar o produto. Verifique os campos e tente novamente.');
+        console.error('Erro ao cadastrar o produto:', err);
+      }
+    },
+  });
+}
+
   
   // Método para capturar o arquivo selecionado
   selecionarFoto(event: Event): void {

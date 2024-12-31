@@ -109,3 +109,98 @@ letter-spacing: var(--mat-table-row-item-label-text-tracking);
 line-height: inherit;
 color: #ff4081;
 }
+
+
+/* Estilos para telas entre 370px e 768px */
+@media (min-width: 370px) and (max-width: 768px){
+  .container {
+   width: 90%;
+   margin: 0;
+  }
+ 
+  :host ::ng-deep .create[_ngcontent-ng-c1052923213] h1[_ngcontent-ng-c1052923213] {
+   text-align: center;
+   font-size: 20px;
+   color: #ff4081;
+ }
+ 
+ :host ::ng-deep .container[_ngcontent-ng-c1052923213] {
+   width: 100%;
+   margin: 0;
+ }
+ 
+  :host ::ng-deep .mat-mdc-paginator-container {
+   display: flex;
+   margin-top: 2em;
+   margin-bottom: 1em;
+   align-items: center;
+   justify-content: flex-end;
+   padding: 0 8px;
+   flex-wrap: wrap-reverse;
+   width: 100%;
+   min-height: var(--mat-paginator-container-size);
+ }
+ 
+  :host ::ng-deep  .mdc-text-field--outlined .mdc-notched-outline {
+   z-index: 1;
+  }
+ 
+  :host ::ng-deep .mat-mdc-paginator-range-actions {
+   display: flex;
+ 
+   align-items: center;
+   color: #ff4081 !important;
+   height: 0.7rem;
+ }
+ 
+ :host ::ng-deep  .mdc-data-table__row[_ngcontent-ng-c1052923213]:last-child .mat-mdc-cell[_ngcontent-ng-c1052923213] {
+   border-bottom: none;
+   color: #ff4081 !important;
+   font-size: 12px;
+ }
+ 
+ :host ::ng-deep .mat-mdc-header-row {
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+   height: var(--mat-table-header-container-height, 56px);
+   color: var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));
+   font-family: var(--mat-table-header-headline-font, Roboto, sans-serif);
+   line-height: var(--mat-table-header-headline-line-height);
+   font-size: var(--mat-table-header-headline-size, 14px);
+   font-weight: var(--mat-table-header-headline-weight, 500);
+   font-size: 12px;
+ }
+ 
+ :host ::ng-deep .mdc-button .mdc-button__label {
+   position: relative;
+   font-size: 8px;
+ }
+ 
+ :host ::ng-deep  .create[_ngcontent-ng-c1052923213] button[_ngcontent-ng-c1052923213] {
+   width: 10rem;
+   border-radius: 3px;
+ }
+ 
+ :host ::ng-deep .mat-mdc-paginator-range-actions {
+   display: flex;
+   align-items: center;
+   color: #ff4081 !important;
+   height: 0.7rem;
+   margin: 0.5rem;
+ }
+ 
+ :host ::ng-deep .mdc-data-table__cell {
+   box-sizing: border-box;
+   overflow: hidden;
+   text-align: left;
+   text-overflow: ellipsis;
+   font-size: 12px;
+ }
+ 
+ }
+ 
+ /* Estilos para orientação portrait (vertical) */
+ @media screen and (orientation: portrait) {
+  
+ }
+ 

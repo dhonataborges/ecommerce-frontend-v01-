@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { VendaProduto } from '../models/VendaProduto';
+import { environment } from '../environment.ts/environment';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from '../environment.ts/environment.prod';
+import { Produto } from '../models/Produto';
+import { Estoque } from '../models/Estoque';
 
 @Injectable({
   providedIn: 'root'
